@@ -1,0 +1,48 @@
+application: appengine-starter
+version: 1
+runtime: python
+api_version: 1
+
+derived_file_type:
+- python_precompiled
+
+inbound_services:
+- mail
+- xmpp_message
+
+handlers:
+- url: /_ah/login_required
+  script: openid_login.py
+  
+- url: /css
+  static_dir: css
+  
+- url: /img
+  static_dir: img
+
+- url: /js
+  static_dir: js
+  
+- url: /favicon.ico
+  static_files: img/favicon.ico
+  upload: img/favicon.ico
+
+- url: /_ah/mail/.+
+  script: email/email.py
+  login: admin
+
+- url: /_ah/xmpp/.+
+  script: xmpp/xmpp.py
+  login: admin
+
+- url: /event.*
+  script: events/event.py
+  
+- url: /user.*
+  script: users/user.py
+
+- url: /phone/.*
+  script: phone/phone.py
+
+- url: .*
+  script: main.py

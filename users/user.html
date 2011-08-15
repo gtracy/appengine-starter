@@ -1,0 +1,105 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+  <head>
+    
+    <title>Frinook - A virtual library for my friends</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+  </head>
+
+<body>  
+
+
+<div id="page-container">
+  <div id="nav">
+   <div id="nav-left"><a href="/">Home</a> | <a href="/user">Profile</a></div>
+   <div id="user-login">{{ greeting }}</div>
+  </div> 
+
+ <div id="user-container">
+  <div id="left-column">
+   <div id="user-profile">
+    <div id="user-pic"><img src=img/unknownUser.png width=90></div>
+    <div id="user-details">
+     <h2>{{ nickname }}</h2>
+     (I'm going to fill this is in with profile data)
+    </div>
+    <div id="spacer"> </div>
+    {{ edit }}
+   </div>
+   
+   <script type="text/javascript">callToActionButtons()</script>
+    <div id="addcomment-container">
+      <div id="close">
+        <img src="img/close.jpg" alt=close>
+      </div>
+      <form id="addcomment-form" onsubmit="return false">
+       <input id="pageOwner" type="hidden" name="pageOwner" value="{{ userIDKey }}">
+       <table>
+        <tr><td><label>leave a message</label><br><textarea cols="50" id="comment" rows="4" name="comment"></textarea></td></tr>
+        <tr colspan=2><td><input type=submit value=Add></td></tr>
+       </table>
+      </form>
+    </div>
+    <table id="user" width=100%>
+      <thead><tr>
+       <th colspan=2><h3>Notes from friends</h3></th>
+      </tr></thead>
+      <tbody class="striped">
+      {% for comment in comments %}
+        <tr><td>{{ comment.text }}<span class="short"><strong>{{ comment.author }}</strong></span></td></tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  
+  <div id="user-books"> 
+    <table width=100%>
+      <thead><tr>
+       <th colspan=2><h3>{{ nickname }}'s Books</h3></th>
+      </tr></thead>
+      <tbody class="striped">
+      {% for book in books %}
+        <tr>
+          <td width="90%">{{ book.thumbnail }}<strong>{{ book.title }}</strong><span class="short">written by {{ book.author }}</span></td>
+          <td>{{ book.status }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+     </table>
+   </div>   
+
+   <div id="spacer">
+   </div>
+   
+ </div> 
+  
+ <div id="footer">
+ <hr>
+  <div id="powered-by">
+     powered by:<br>
+     <a href=http://code.google.com/appengine/><img src="img/gae-logo.png" alt="google app engine" height="30" width="30"></a>
+  </div>
+  <div id="me">
+   <br><a href="mailto:feedback@frinook.com?subject=Frinook%20feedback">send feedback</a>
+  </div>
+ </div>
+ 
+</div>
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-2237321-12");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+  </body>
+</html>
+

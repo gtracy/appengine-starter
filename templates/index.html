@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+ <title>iceskatesfor.us</title>
+ <link rel="stylesheet" type="text/css" href="css/style.css">
+ <link rel="stylesheet" type="text/css" href="css/smoothness/jquery-ui-1.8.7.custom.css">
+ 
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script> 
+ <script type="text/javascript" src="js/jquery.form.js?v2.43"></script>
+ <script type="text/javascript" src="js/jquery-ui-1.8.7.custom.min.js"></script>
+ <script type="text/javascript" src="js/controls.js"></script>
+ 
+</head>
+ <body>
+
+ <div id="header">
+  <span class="title"><a href="/">iceskatesfor.us</a></span>
+  <span class="user-login">
+    {% if greeting %}
+      {{greeting}}
+    {% else %}
+      <p><fb:profile-pic></fb:profile-pic></p>
+      <p>Hello, {{ current_user.name|escape }}</p>
+    {% endif %}
+  </span>
+ </div>
+ 
+ <div id="content">
+  <div id="inventory">
+   <span class="add-btn">+ add skates</span>
+   <h2>The Rink</h2>
+   <span class="category-desc">Listing of available skates</span>
+    <div id="addskate-container">
+      <div id="close">
+        <img src="img/close.jpg" alt=close>
+      </div>
+      <div id="addskate-instructions">
+        <h3>Listing new skates? Sweet!</h3>
+        Just fill out the form to the right, press submit, and the skates will be added.
+        <p>Thank you!</p>
+      </div>
+      <fieldset>
+      <legend>Share your skates!</legend>
+      <form class="addskate-form" enctype="multipart/form-data" onsubmit="return false">
+         <label for="size">Skate size: </label>
+         <input id="size" type="text" name="size" style="font-size: 1em;width: 2em;border: 0; color:#f6931f; font-weight:bold;">
+         <div id="size-slider"></div>
+         <br/><label for="price">Price: $ </label>
+         <input id="price" type="text" name="price" style="font-size: 1em;width: 5em;border: 0; color:#f6931f; font-weight:bold;">
+         <div id="price-slider"></div>
+         <p><label>Skate style:</label>
+         <br/><input id="figure" type="radio" name="style" value="figure">figure</input>
+         <input id="hockey" type="radio" name="style" value="hockey">hockey</input>
+         <input id="kiddy" type="radio" name="style" value="kiddy">kiddy</input></p>
+         <p><label>Upload an image:</label>
+         <input type="file" id="image" name="image"></input></p>
+         <label>Any other notes worth sharing?</label>
+         <textarea id="notes" rows=7 cols=30 name="notes"></textarea>
+         <input class="submitbtn" type=submit value="submit">
+         <span class="submitbtn-progress"><img src="img/loader.gif"> working...</img></span>
+      </form>
+      </fieldset>
+    </div>
+    
+    <div id="skateList">
+      {% for skate in skates %}
+        <div id="skate">
+           <img class="photo" src={{ skate.picture }}></img>
+           <div id="details">
+            <span class="owner">{{ skate.owner }} {{ skate.profilePic }}</span>
+            <hr/>
+			<table>
+			 <th>size</th><th> </th><th>price</th>
+             <tr>
+              <td>{{ skate.size }}</td>
+			  <td> </td>
+			  <td class="{{ skate.priceStyle }}">{{ skate.price }}</td>
+			 </tr>
+			</table>
+			<span class="note">{{skate.note}}</span>
+           </div>
+           <div id="actions">
+             <span class="submitbtn-progress"><img src="img/loader.gif"></img></span>
+             {{ skate.action }}
+           </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div id="interaction">
+   <h2>The Bench</h2>
+   <span class="category-desc">Chatter, messages and karma</span>
+   {{ facepile }}
+   <br/>
+    <div id="addcomment-container">
+      <form id="addcomment-form" onsubmit="return false">
+       <table>
+        <tr><td>
+         <label>leave a comment</label>
+         <br><textarea cols="40" id="review" rows="3" name="comment"></textarea>
+        </td></tr>
+        <tr colspan=2>
+         <td>
+          <input type=submit value=Add> 
+          <span class="comment-progress"><img src="img/loader.gif"></img></span>
+         </td>
+        </tr>
+       </table>
+      </form>
+    </div>
+    <div id="event-container">
+     {% for e in events %}
+      <div id="event">
+       <div id="event-pic">
+         {{ e.profilePic }}
+       </div>
+       <div id="event-body">
+         <span class="event-owner">{{e.owner}}</span>{{ e.body }}
+       </div>
+      </div>
+     {% endfor %}
+   </div>
+  </div>
+ </div>
+ 
+ <div id="footer">
+ <hr>
+  <div id="powered-by">
+     powered by:<br>
+     <a href=http://code.google.com/appengine/><img src="img/gae-logo.png" alt="google app engine" height="30" width="30"></a>
+  </div>
+  <div id="me">
+   <br><a href=http://gregtracy.com>greg tracy</a> | </a><a href="mailto:info@iceskatesfor.us?subject=iceskatesfor.us%20feedback">send feedback</a>
+  </div>
+ </div>
+
+ <div id="fb-root"></div>
+ <script>
+      window.fbAsyncInit = function() {
+        FB.init({appId: '110071559065542', status: true, cookie: true,
+                 xfbml: true});
+      };
+      (function() {
+        var e = document.createElement('script');
+        e.type = 'text/javascript';
+        e.src = document.location.protocol +
+          '//connect.facebook.net/en_US/all.js';
+        e.async = true;
+        document.getElementById('fb-root').appendChild(e);
+      }());
+ </script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2237321-18']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+ </body>
+</html>

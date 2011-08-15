@@ -1,0 +1,331 @@
+html,body {
+	margin: 0px auto;
+	height: 100%;
+	font-size: 100%;
+	font-family: Georgia;
+}
+
+h2 {
+	font-size: 3em;
+}
+	
+a {
+	text-decoration: none;
+	color: black;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+#container {
+	height: auto !important;
+	height:100%;
+	min-height: 100%;
+	
+	width: 100%;
+	margin: 0px auto;
+	padding: 0px;
+}
+#header {
+    width: 100%;
+    height: 50px;
+    background-color: #eeeeee;
+    margin: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#openid-container {
+	margin: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+.title {
+	font-size: 1.25em;
+	font-weight: bold;
+  float: left;
+  text-align: left;
+  padding-left: 10px;
+}  
+.user-login {
+  float: right;
+  text-align: right;
+  padding-right: 10px;
+  font-weight: bold;
+}
+.user-name {
+	float: left;
+	padding-right: 8px;
+}
+#content {
+	width: 100%;
+	min-height: 100%;
+	margin: 0px auto;
+	overflow: auto;
+}
+
+.add-btn {
+	display: block;
+	float: right;
+	text-align: right;
+	margin: 20px 20px;
+	padding: 2px 4px 2px 4px;
+	border: 2px solid;
+	background-color: #96BCE0;
+	cursor: pointer;
+}
+.add-btn:hover {
+	font-weight: bold;
+}
+.action-btn {
+	margin-bottom: 4px;
+	padding: 2px 4px 2px 4px;
+	border: 2px solid;
+	cursor: pointer;
+}
+.action-btn:hover {
+	font-weight: bold;
+}
+.reserve-btn {
+	background-color: #E096E0;
+}
+.delete-btn {
+    background-color: #96E096;
+}
+
+.add-btn-highlighted {
+	background-color: #aabce0;
+}
+
+.category-desc {
+	display: block;
+	padding: 2px;
+	color: #888888;
+	font-weight: bold;
+}
+
+#inventory {
+	float: left;
+	padding-top: 12px;
+	padding-left: 12px;
+	/*border: 1px solid;*/
+	width: 60%;
+	overflow: hidden;
+}
+#inventory h2 {
+	margin: 0 0 0;
+	padding-top: 0px;
+	border-bottom: 2px dashed;
+}
+
+#skateList {
+	clear: both;
+	margin: auto;
+	width: 100%;
+}
+#skate {
+	height: 300px;
+    padding: 20px 4px;
+    border-bottom: 1px dashed;
+	margin: 4px;
+	clear: both;
+	position: relative;
+}
+
+.photo {
+	float: left;
+}
+.note {
+	display: inline;
+	float: right;
+	padding-top: 12px;
+	border-top: 1px solid;
+	width: 50%;
+	margin: auto;
+	margin-top: 20px;
+	text-align: left;
+}
+#actions {
+	padding: 12px 0 0;
+	width: 100%;
+	float: right;
+	margin: auto;
+	text-align: right;
+	position: absolute;
+	bottom: 8px;
+	right: 8px;
+}
+#details {
+	width: 85%;
+	position: absolute top;
+	margin: auto;
+	text-align: right;
+	padding: 20px 8px 0px 100px;
+}
+#details table {
+    float: right;
+	width: 60%;
+	font-size: 1.0em;
+}
+#details td.free {
+    color: #C02943;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.owner {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+.category {
+    font-weight: bold;
+	text-align: left;
+}
+
+#interaction {
+	float: right;
+	padding-top: 12px;
+	/*border: 1px solid;*/
+	width: 35%;
+	overflow: hidden;
+}
+#interaction h2 {
+	padding-top: 0px;
+	margin: 0 0 0;
+	border-bottom: 2px dashed;
+}
+#addskate-instructions {
+	display: inline;
+	float: left;
+	width: 300px;
+}
+#addskate-container {
+	float: right;
+    display: block;
+    margin-left: 5px;
+    padding-top: 20px;
+}
+#addskate-container fieldset { display: inline;float: right; width: 300px; }
+#addskate-container legend {
+	text-align: right;
+  background: #eeeeee;
+  border: 1px solid;
+  padding: 2px 6px
+}
+ 
+#addskate-container label {
+  margin-right: 0.5em;
+  padding-left: 0px;
+}
+.addskate-form {
+    padding: 12px;
+}
+#addskate-container .photo-upload {
+    margin: auto;
+}
+#addskate-container .submitbtn {
+	margin-left: 4em;
+}
+.label-effects {
+	padding: 2px;
+	margin-bottom: 0px;
+	font-size: 1.25em;
+	font-weight: bold;
+}
+
+.description {
+	font-size: 1em;
+	color: #999999;
+	text-style: bold;
+}
+
+#event-container {
+	height: auto !important;
+}
+
+#event {
+	border-bottom: 1px dashed;
+	min-height: 60px;
+	width: 100%;
+	display: inline-block;
+	padding: 4px;
+	margin: 4px;
+}
+#event-pic {
+	float: right;
+}
+#event-body {
+	width: 85%;
+	float: left;
+	font-style: italic;
+	font-size: .75em;
+}
+.event-owner {
+	font-style: bold;
+}
+#splash-content {
+	text-align: center;
+	min-height: 100%;
+	margin: 0 auto;
+	padding: 10px;
+}
+
+#splash-title {
+	padding: 4px;
+	font-size: 64px;
+	font-weight: bold;
+	margin: auto;
+}
+
+#splash-desc {
+	padding: 2px 0 16px;
+	font-size: 24px;
+}
+
+#splash-login {
+	clear: both;
+	padding-top: 16px;
+}
+
+#splash-login-fb {
+	padding: 20px;
+}
+#splash-login-google {
+	padding: 20px;
+}
+
+#powered-by {
+  font-size: 12px;
+  float: left;
+  padding: 4px;
+}
+
+#contact-container {
+  float: middle;
+  padding: 4px;
+  font-size: 12px;
+  postion: top right;
+}
+
+#profile-container {
+	width: 50%;
+	margin: 12px 50px 100px 50px;
+}
+
+#me {
+  float: right;
+  padding: 4px;
+  font-size: 12px;
+}
+
+#footer {
+  height: 80px;
+  color: #888888;
+  background: white;
+  clear: both;
+}
+
+div#footer a {
+  font-size: 12px;
+  color: #888888;

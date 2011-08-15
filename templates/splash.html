@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+ <title>iceskatesfor.us</title>
+ <link rel="stylesheet" type="text/css" href="css/style.css"> 
+</head>
+ <body>
+  <div id="splash-content">
+ 
+   <div id="splash-title">iceskatesfor.us</div>
+   <div id="splash-desc">A neighborhood swap site for our skates</div>
+   <img alt="skate logo" src="img/iceskater.png"></img>
+ 
+   <div id="splash-login">
+    {% if greeting %}
+      {{greeting}}
+    {% endif %}
+      <p><fb:login-button perms="email">Login with Facebook</fb:login-button></p>
+      <p>Not on Facebook? Try one of these <a style="color:red;" href="/_ah/login_required">alternate solutions</a>.</p>
+   </div>
+   </div>
+ </div>
+ 
+  <div id="footer">
+  <hr>
+   <div id="powered-by">
+     powered by:<br>
+     <a href=http://code.google.com/appengine/><img src="img/gae-logo.png" alt="google app engine" height="30" width="30"></a>
+   </div>
+   <div id="me">
+    <br><a href=http://gregtracy.com>greg tracy</a> | </a><a href="mailto:gtracy@gmail.com?subject=iceskatesfor.us%20feedback">send feedback</a>
+   </div>
+  </div>
+    
+ <div id="fb-root"></div>
+<script src="http://connect.facebook.net/en_US/all.js"></script>
+<script>
+  FB.init({appId: '110071559065542', status: true, cookie: true, xfbml: true});
+  FB.Event.subscribe('auth.sessionChange', function(response) {
+    if (response.session) {
+      // A user has logged in, and a new cookie has been saved
+        window.location.replace('/');
+    } else {
+      // The user has logged out, and the cookie has been cleared
+    }
+  });
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2237321-18']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+ </body>
+</html>
